@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/workoutFragment">
 
+    <fragment
+        android:id="@+id/workoutFragment"
+        android:name="com.example.midtermtimer.fragments.WorkoutFragment"
+        android:label="fragment_workout"
+        tools:layout="@layout/fragment_workout" >
+        <action
+            android:id="@+id/action_workoutFragment_to_timer_fragment"
+            app:destination="@id/timer_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/timer_fragment"
+        android:name="com.example.midtermtimer.fragments.timer_fragment"
+        android:label="fragment_timer_fragment"
+        tools:layout="@layout/fragment_timer_fragment" />
 </navigation>
