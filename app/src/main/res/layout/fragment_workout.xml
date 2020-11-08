@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.WorkoutFragment">
+    tools:context=".fragments.WorkoutFragment"
+    android:id="@+id/fragment_workout">
 
 
     <TextView
@@ -38,7 +39,7 @@
         android:layout_width="175dp"
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
-        android:text="Button"
+        android:text="@string/walking_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Label_textview" />
@@ -48,7 +49,7 @@
         android:layout_width="175dp"
         android:layout_height="58dp"
         android:layout_marginTop="16dp"
-        android:text="Button"
+        android:text="@string/sit_ups_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/jogging_btn" />
