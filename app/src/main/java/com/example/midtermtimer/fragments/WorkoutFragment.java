@@ -39,7 +39,22 @@ public class WorkoutFragment extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        mNavController.navigate(R.id.action_workoutFragment_to_timer_fragment);
+        Bundle bundle = new Bundle();
+
+        switch (view.getId()){
+            case R.id.walking_btn:
+                bundle.putInt("min", 15);
+                mNavController.navigate(R.id.action_workoutFragment_to_timer_fragment, bundle);
+                break;
+            case R.id.jogging_btn:
+                bundle.putInt("min", 5);
+                mNavController.navigate(R.id.action_workoutFragment_to_timer_fragment, bundle);
+                break;
+            case R.id.sit_ups_btn:
+                bundle.putInt("min", 1);
+                mNavController.navigate(R.id.action_workoutFragment_to_timer_fragment, bundle);
+                break;
+        }
 
     }
 }
