@@ -48,8 +48,17 @@ public class timer_fragment extends Fragment {
             @Override
             public void onClick(View view) {
                 mPaused = !mPaused;
+                String text = mPaused ? getString(R.string.start_text) : getString(R.string.stop_text);
+                mStartBtn.setText(text);
             }
         });
+
+        if (savedInstanceState != null){
+            mSeconds = savedInstanceState.getInt("second");
+            mMinutes = savedInstanceState.getInt("minute");
+            mHours = savedInstanceState.getInt("hour");
+            mPaused = savedInstanceState.getBoolean("paused");
+        }
 
         runTimer();
     }
@@ -69,11 +78,25 @@ public class timer_fragment extends Fragment {
             int sec = (mSeconds + (mMinutes * 60) + (mHours * 3600)) % 60;
             int minutes = ((mSeconds + (mMinutes * 60) + (mHours * 3600)) % 3600) / 60;
             int hour = (mSeconds + (mMinutes * 60) + (mHours * 3600))/3600;
-            mTimerText.setText(String.format("%02d : %02d : %02d", hour, minutes, sec));
-            if (!mPaused) mSeconds --;
+            if (hour == 0 & minutes == 0 && sec == 0){
+                mTimerText.setText("Well Done!");;
+            } else{
+                mTimerText.setText(String.format("%02d : %02d : %02d", hour, minutes, sec));
+                if (!mPaused) mSeconds --;
+            }
             handler.postDelayed(this, 1000);
             }
         });
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt("second", mSeconds);
+        outState.putInt("minute", mMinutes);
+        outState.putInt("hour", mHours);
+        outState.putBoolean("paused", mPaused);
     }
 }
