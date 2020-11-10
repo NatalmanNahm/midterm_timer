@@ -22,16 +22,20 @@ public class timer_fragment extends Fragment {
 
     //Initialize
     private int mMinutes;
-    private int mSeconds = 0;
-    private int mHours = 0;
+    private int mSeconds;
+    private int mHours;
     private Button mStartBtn;
     private TextView mTimerText;
+    private boolean mPaused = true;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mHours = getArguments().getInt("hour");
         mMinutes = getArguments().getInt("min");
+        mSeconds = getArguments().getInt("sec");
+
         Log.i("MINT", String.valueOf(mMinutes));
 
         mStartBtn = view.findViewById(R.id.btn_timer);
@@ -39,6 +43,15 @@ public class timer_fragment extends Fragment {
 
 
         mTimerText.setText(String.format("%02d : %02d : %02d", mHours, mMinutes, mSeconds));
+
+        mStartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mPaused = !mPaused;
+            }
+        });
+
+        runTimer();
     }
 
     @Override
@@ -53,8 +66,12 @@ public class timer_fragment extends Fragment {
         handler.post(new Runnable() {
             @Override
             public void run() {
-//                int sec = mMinutes % 3600;
-//                int min =
+            int sec = (mSeconds + (mMinutes * 60) + (mHours * 3600)) % 60;
+            int minutes = ((mSeconds + (mMinutes * 60) + (mHours * 3600)) % 3600) / 60;
+            int hour = (mSeconds + (mMinutes * 60) + (mHours * 3600))/3600;
+            mTimerText.setText(String.format("%02d : %02d : %02d", hour, minutes, sec));
+            if (!mPaused) mSeconds --;
+            handler.postDelayed(this, 1000);
             }
         });
 
