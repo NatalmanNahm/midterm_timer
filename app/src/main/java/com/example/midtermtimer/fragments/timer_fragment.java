@@ -79,7 +79,8 @@ public class timer_fragment extends Fragment {
             int minutes = ((mSeconds + (mMinutes * 60) + (mHours * 3600)) % 3600) / 60;
             int hour = (mSeconds + (mMinutes * 60) + (mHours * 3600))/3600;
             if (hour == 0 & minutes == 0 && sec == 0){
-                mTimerText.setText("Well Done!");;
+                mTimerText.setText("Well Done!");
+                mStartBtn.setEnabled(false);
             } else{
                 mTimerText.setText(String.format("%02d : %02d : %02d", hour, minutes, sec));
                 if (!mPaused) mSeconds --;
