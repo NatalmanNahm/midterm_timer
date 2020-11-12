@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#DF8D8D"
+    tools:context=".fragments.timer_fragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="163dp"
+        android:layout_height="129dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginRight="28dp"
+        android:src="@drawable/timer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#DF8D8D"
-        tools:context=".fragments.timer_fragment">
-
-
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="163dp"
-            android:layout_height="129dp"
-            android:layout_marginTop="28dp"
-            android:layout_marginEnd="28dp"
-            android:layout_marginRight="28dp"
-            android:src="@drawable/timer"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/timer_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="158dp"
-            android:fontFamily="sans-serif-light"
-            android:text="@string/timer_text"
-            android:textColor="#ffff"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textSize="84dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="158dp"
+        android:fontFamily="sans-serif-light"
+        android:text="@string/timer_text"
+        android:textColor="#ffff"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textSize="84dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/btn_timer"
@@ -44,32 +41,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:layout_marginBottom="270dp"
             android:background="@drawable/ripple_circle"
+            android:elevation="12dp"
             android:fontFamily="sans-serif-light"
             android:text="@string/start_text"
             android:textAllCaps="true"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="#ffff"
             android:textSize="24dp"
-            android:elevation="12dp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/timer_text" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="163dp"
-            android:layout_height="129dp"
-            android:layout_marginStart="28dp"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="28dp"
-            android:src="@drawable/timer"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="163dp"
+        android:layout_height="129dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
